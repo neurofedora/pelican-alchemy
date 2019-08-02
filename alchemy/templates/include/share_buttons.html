@@ -1,6 +1,6 @@
 {% if article.share_post and article.status != 'draft' %}
 <ul class="list-inline">
-  <li class="list-inline-item"><a class="fas fa-share-alt" href="#" target="_blank" title="Share this post"></a></li>
+  <li class="list-inline-item"><i class="fas fa-share-alt" title="Share this post"></i></li>
   <li class="list-inline-item"><a class="fab fa-twitter" href="{{article.share_post['twitter']}}" target="_blank" title="Share on Twitter"></a></li>
   <li class="list-inline-item"><a class="fab fa-facebook" href="{{article.share_post['facebook']}}" target="_blank" title="Share on Facebook"></a></li>
   <li class="list-inline-item"><a class="fab fa-reddit" href="{{article.share_post['reddit']}}" target="_blank" title="Share on Reddit"></a></li>
