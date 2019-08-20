@@ -1,20 +1,20 @@
 <div class="row">
   {% if SITEIMAGE %}
     <div class="col-sm-3">
-      <a href="{{ SITEURL }}/">
+      <a href="{{ SITEURL }}/" title="{{ SITENAME  }}">
         <img class="img-fluid rounded" src={{ SITEURL }}{{ SITEIMAGE }} alt="{{ SITENAME }}">
       </a>
     </div>
   {% endif %}
   <div class="col-sm-{% if SITEIMAGE %}9{% else %}12{% endif %}">
-    <h1 class="title"><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+    <h1 class="title"><a href="{{ SITEURL }}/" title="{{ SITENAME }}">{{ SITENAME }}</a></h1>
     {% if SITESUBTITLE %}
       <p class="text-muted">{{ SITESUBTITLE }}</p>
     {% endif %}
     {% if LINKS or (DISPLAY_PAGES_ON_MENU and pages) or ICONS %}
       <ul class="list-inline">
         {% for title, link in LINKS %}
-          <li class="list-inline-item"><a href="{{ link }}">{{ title }}</a></li>
+          <li class="list-inline-item"><a href="{{ link }}" title="{{ title }}">{{ title }}</a></li>
         {% endfor %}
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for page in pages %}
@@ -24,11 +24,11 @@
             <li class="list-inline-item"><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
           {% endfor %}
         {% endif %}
-        {% for icon, link in ICONS %}
+        {% for icon, link, title in ICONS %}
           {% if (LINKS or (DISPLAY_PAGES_ON_MENU and pages)) and loop.first %}
             <li class=" list-inline-item text-muted">|</li>
           {% endif %}
-          <li class="list-inline-item"><a class="{{ icon }}" href="{{ link }}" target="_blank"></a></li>
+          <li class="list-inline-item"><a class="{{ icon }}" href="{{ link }}" title="{{ title  }}"target="_blank"></a></li>
         {% endfor %}
       </ul>
     {% endif %}
